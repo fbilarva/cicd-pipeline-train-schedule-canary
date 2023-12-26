@@ -36,6 +36,7 @@ spec:
       containers:
       - name: train-schedule
         image: bilanx/train-schedule:latest
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
         livenessProbe:
