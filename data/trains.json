@@ -1,10 +1,10 @@
 {
 	"trains": [
 		{
-			"name": "Hogwarts Express",
+			"name": "Itaquera Express",
 			"stops": [
 				{
-					"station": "Sycamore",
+					"station": "Luz",
 					"status": "ON-TIME",
 					"arrival": "12:00pm",
 					"departure": "12:10pm"
