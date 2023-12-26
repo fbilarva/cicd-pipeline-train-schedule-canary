@@ -35,8 +35,8 @@ pipeline {
         stage('DeployToProduction') {
             steps {                
                 withKubeConfig([credentialsId: 'kubeconfig']) {
-                    sh 'kubectl apply -f train-schedule-kube.yml' 
-                    sh 'kubectl get pods' 
+                    sh 'kubectl -n default apply -f train-schedule-kube.yml' 
+                    sh 'kubectl -n default get pods' 
                }
            }
         }  
