@@ -35,7 +35,7 @@ pipeline {
         stage('DeployToProduction') {
             steps {                
                 withKubeConfig([credentialsId: 'kubeconfig']) {
-                    sh 'kubectl delete deployments.apps train-schedule-deployment' 
+                    sh 'kubectl -n default delete deployments.apps train-schedule-deployment' 
                     sh 'kubectl -n default apply -f train-schedule-kube.yml' 
                     sh 'kubectl -n default get pods' 
                }
