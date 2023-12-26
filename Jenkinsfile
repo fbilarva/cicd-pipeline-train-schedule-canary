@@ -25,10 +25,7 @@ pipeline {
                 }
             }
         }
-        stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
+        stage('Push Docker Image') 
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
@@ -38,13 +35,8 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProduction') {
-            when {
-                branch 'master'
-            }
+        stage('DeployToProduction') 
             steps {
-                input 'Deploy to Production?'
-                milestone(1)
                 withKubeConfig([credentialsId: 'kubeconfig']) {
                     sh 'kubectl apply -f train-schedule-kube.yml' 
                     sh 'kubectl get pods' 
