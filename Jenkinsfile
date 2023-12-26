@@ -46,8 +46,10 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 withKubeConfig([credentialsId: 'kubeconfig']) {
-                    sh 'kubectl apply -f train-schedule-kube.yml'                    
-            }
-        }
+                    sh 'kubectl apply -f train-schedule-kube.yml' 
+                    sh 'kubectl get pods' 
+               }
+           }
+        }  
     }
 }
