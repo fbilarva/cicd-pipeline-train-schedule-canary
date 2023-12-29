@@ -35,6 +35,7 @@ pipeline {
         stage('DeployToProduction') {
             steps {                
                 withKubeConfig([credentialsId: 'kubeconfig']) {
+                    sh 'kubectl -n wordpress delete -f train-schedule-kube.yml' 
                     sh 'kubectl -n wordpress apply -f train-schedule-kube.yml' 
                     sh 'kubectl -n wordpress get pods' 
                }
