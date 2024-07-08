@@ -35,8 +35,8 @@ pipeline {
         stage('DeployToProduction') {
             steps {                
                 withKubeConfig([credentialsId: 'kubeconfig']) {
-                    sh 'kubectl create namespace wordpress' 
-                    sh 'kubectl -n wordpress delete deployments.apps train-schedule-deployment'
+                    sh 'kubectl get ns wordpress || kubectl create ns wordpress'
+                    sh 'kubectl -n wordpress get deployments.apps train-schedule-deployment || kubectl -n wordpress delete deployments.apps train-schedule-deployment'
                     sh 'kubectl -n wordpress apply -f train-schedule-kube.yml' 
                     sh 'kubectl -n wordpress get pods' 
                }
