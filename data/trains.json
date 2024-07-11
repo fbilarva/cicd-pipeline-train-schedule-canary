@@ -5,9 +5,9 @@
 			"stops": [
 				{
 					"station": "Sycamore",
-					"status": "DELAYED",
-					"arrival": "12:30pm",
-					"departure": "12:40pm"
+					"status": "ON-TIME",
+					"arrival": "12:00pm",
+					"departure": "12:10pm"
 				},
 				{
 					"station": "Pine",
